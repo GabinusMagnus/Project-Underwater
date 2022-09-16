@@ -1,9 +1,23 @@
-# Project Underwater
-Jeu en python par le moteur de jeu pyxel pour la Nuit Du Code.
+## Apprentissage Pyxel
 
+- Déplacement d'un objet selon les touches : **fait**
+- Affichage des vies : **fait**
+- Afficher tirs : **fait**
+- Afficher ennemis : **fait**
+- Animations (collisions) : **fait**
+- Définir fond d'écran : **à faire**
+- Définir ennemis comme nouilles : **à faire**
+- Définir sprite du joueur comme sous-marin : **à faire**
+- Créer un écran d'accueil : **à faire**
 
-### Concept
+## Apprentissage Scratch
 
-Simple space-shooter, dont les variables seront facilement modifiables (vies, sprites,...), et dont le code sera le plus simpliste possible pour être compréhensible à des collégiens.
-
-Un écran d'accueil permettra de définir le nombre de vies de départ.
+- Déplacement d'un objet selon les touches : **à faire**
+- Affichage desz vies : **à faire**
+- Afficher tirs : **à faire**
+- Afficher ennemis : **à faire**
+- Animations (collisions) : **à faire**
+- Définir fond d'écran : **à faire**
+- Définir ennemis comme nouilles : **à faire**
+- Définir sprite du joueur comme sous-marin : **à faire**
+- Créer un écran d'accueil : **à faire**
