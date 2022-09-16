@@ -114,8 +114,9 @@ def draw():
         pyxel.rect(tir[0], tir[1], 1, 4, 10)
 
     # ennemis
-    pyxel.load(/Underwater/sprites/ravioli.pyxres)
-
+    for ennemi in ennemis_liste:
+        pyxel.load('sprites/ravioli.pyxres')
+        
 
     # bloc original
     #for ennemi in ennemis_liste:
