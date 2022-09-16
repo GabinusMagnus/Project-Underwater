@@ -1,9 +1,16 @@
 # on rajoute random
+from distutils.command.install_lib import PYTHON_SOURCE_EXTENSION
 import pyxel, random
 
 # taille de la fenetre 128x128 pixels
 # ne pas modifier
 pyxel.init(128, 128, title="Nuit du c0de")
+
+
+# on charge ravioli.pyxres
+pyxel.load('sprites/ravioli.pyxres')
+
+
 
 # position initiale du vaisseau
 # (origine des positions : coin haut gauche)
@@ -114,8 +121,20 @@ def draw():
         pyxel.rect(tir[0], tir[1], 1, 4, 10)
 
     # ennemis
+    
+    #bloc pour le pyxres
     for ennemi in ennemis_liste:
-        pyxel.load('sprites/ravioli.pyxres')
+        pyxel.blt(ennemi[0], ennemi[1], 0, 0, 0, 8, 8)
+        
+
+
+    # bloc pour charger une image
+    # for ennemi in ennemis_liste:
+    #    pyxel.image(0).load(0, 1, 'sprites/ravioli.png')
+    
+    #bloc pour le pyxres
+    #for ennemi in ennemis_liste:
+    #    pyxel.load('sprites/ravioli.pyxres')
         
 
     # bloc original

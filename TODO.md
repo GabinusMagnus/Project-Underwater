@@ -6,7 +6,7 @@
 - Afficher ennemis : **fait**
 - Animations (collisions) : **fait**
 - Définir fond d'écran : **à faire**
-- Définir ennemis comme raviolis : **la ressource Underwater/sprites/raviolis.pyxres est créée et le script dans Underwater/ennemis.py la charge, mais les ennemis n'apparaissent pas.**
+- Définir ennemis comme raviolis : **redimensionner les raviolis**
 
 
 - Définir sprite du joueur comme sous-marin : **à faire**
