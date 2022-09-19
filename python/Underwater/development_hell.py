@@ -4,7 +4,7 @@ import pyxel, random
 
 # taille de la fenetre 128x128 pixels
 # ne pas modifier
-pyxel.init(128, 128, title="Nuit du c0de")
+pyxel.init(128, 128, title="Project Underwater")
 
 
 # on charge ravioli.pyxres
@@ -22,6 +22,13 @@ tirs_liste = []
 
 # initialisation des ennemis
 ennemis_liste = []
+
+# initialisation des explosions
+explosions_liste = []  
+
+# initialisation du nombre de vies
+vies = 4
+
 
 
 def vaisseau_deplacement(x, y):
@@ -80,6 +87,43 @@ def ennemis_deplacement(ennemis_liste):
     return ennemis_liste
 
 
+def vaisseau_suppression(vies):
+    """disparition du vaisseau et d'un ennemi si contact"""
+
+    for ennemi in ennemis_liste:
+        if ennemi[0] <= vaisseau_x+8 and ennemi[1] <= vaisseau_y+8 and ennemi[0]+8 >= vaisseau_x and ennemi[1]+8 >= vaisseau_y:
+            ennemis_liste.remove(ennemi)
+            global vies -= 1
+            # on ajoute l'explosion
+            explosions_creation(vaisseau_x, vaisseau_y)
+    return vies
+
+
+def ennemis_suppression():
+    """disparition d'un ennemi et d'un tir si contact"""
+
+    for ennemi in ennemis_liste:
+        for tir in tirs_liste:
+            if ennemi[0] <= tir[0]+1 and ennemi[0]+8 >= tir[0] and ennemi[1]+8 >= tir[1]:
+                ennemis_liste.remove(ennemi)
+                tirs_liste.remove(tir)
+                # on ajoute l'explosion
+                explosions_creation(ennemi[0], ennemi[1])
+
+
+def explosions_creation(x, y):
+    """explosions aux points de collision entre deux objets"""
+    explosions_liste.append([x, y, 0])
+
+
+def explosions_animation():
+    """animation des explosions"""
+    for explosion in explosions_liste:
+        explosion[2] +=1
+        if explosion[2] == 12:
+            explosions_liste.remove(explosion)
+
+
 # =========================================================
 # == UPDATE
 # =========================================================
@@ -103,6 +147,16 @@ def update():
     # mise a jour des positions des ennemis
     ennemis_liste = ennemis_deplacement(ennemis_liste)    
 
+    # suppression des ennemis et tirs si contact
+    ennemis_suppression()
+
+    # suppression du vaisseau et ennemi si contact
+    vies = vaisseau_suppression(vies)
+
+    # evolution de l'animation des explosions
+    explosions_animation()    
+
+
 
 # =========================================================
 # == DRAW
@@ -124,7 +178,7 @@ def draw():
     
     #bloc pour le pyxres
     for ennemi in ennemis_liste:
-        pyxel.blt(ennemi[0], ennemi[1], 0, 0, 0, 8, 8)
+        pyxel.blt(ennemi[0], ennemi[1], 0, 0, 0, 20, 20)
         
 
 

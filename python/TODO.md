@@ -1,7 +1,7 @@
 ## Apprentissage Pyxel
 
 - Déplacement d'un objet selon les touches : **fait**
-- Affichage desz vies : **fait**
+- Affichage des vies : **fait**
 - Afficher tirs : **fait**
 - Afficher ennemis : **fait**
 - Animations (collisions) : **fait**
