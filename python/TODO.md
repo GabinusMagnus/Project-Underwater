@@ -13,3 +13,6 @@
 - Créer un écran d'accueil : **à faire**
 
 
+VARIABLE VIES
+
+UTILISER GLOBAL DANS LA FONCTION
