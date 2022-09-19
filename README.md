@@ -1,23 +1,3 @@
-## Apprentissage Pyxel
+# Project Underwater
 
-- Déplacement d'un objet selon les touches : **fait**
-- Affichage des vies : **fait**
-- Afficher tirs : **fait**
-- Afficher ennemis : **fait**
-- Animations (collisions) : **fait**
-- Définir fond d'écran : **à faire**
-- Définir ennemis comme nouilles : **à faire**
-- Définir sprite du joueur comme sous-marin : **à faire**
-- Créer un écran d'accueil : **à faire**
-
-## Apprentissage Scratch
-
-- Déplacement d'un objet selon les touches : **à faire**
-- Affichage desz vies : **à faire**
-- Afficher tirs : **à faire**
-- Afficher ennemis : **à faire**
-- Animations (collisions) : **à faire**
-- Définir fond d'écran : **à faire**
-- Définir ennemis comme nouilles : **à faire**
-- Définir sprite du joueur comme sous-marin : **à faire**
-- Créer un écran d'accueil : **à faire**
+Underwater est un jeu en deux éditions, l'une écrite en python et l'autre en scratch, pour la Nuit du Code.
