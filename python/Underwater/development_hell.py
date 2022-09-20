@@ -27,7 +27,7 @@ ennemis_liste = []
 explosions_liste = []  
 
 # initialisation du nombre de vies
-vies = 4
+#vies = 4
 
 
 
@@ -93,7 +93,8 @@ def vaisseau_suppression(vies):
     for ennemi in ennemis_liste:
         if ennemi[0] <= vaisseau_x+8 and ennemi[1] <= vaisseau_y+8 and ennemi[0]+8 >= vaisseau_x and ennemi[1]+8 >= vaisseau_y:
             ennemis_liste.remove(ennemi)
-            global vies -= 1
+            vies = 4
+            vies -= 1
             # on ajoute l'explosion
             explosions_creation(vaisseau_x, vaisseau_y)
     return vies
