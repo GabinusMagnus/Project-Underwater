@@ -8,7 +8,7 @@ pyxel.init(128, 128, title="Project Underwater")
 
 
 # on charge ravioli.pyxres
-pyxel.load('sprites/ravioli.pyxres')
+pyxel.load('sprites/coquillage.pyxres')
 
 
 
