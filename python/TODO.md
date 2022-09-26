@@ -5,14 +5,17 @@
 - Afficher tirs : **fait**
 - Afficher ennemis : **fait**
 - Animations (collisions) : **fait**
-- Définir fond d'écran : **à faire**
-- Définir ennemis comme raviolis : **redimensionner les raviolis**
+- Définir ennemis comme raviolis : **fait**
 
+
+## Underwater
 
 - Définir sprite du joueur comme sous-marin : **à faire**
 - Créer un écran d'accueil : **à faire**
+- Créer un décor : **à faire**
+- Ajouter un score : **en cours**
 
 
-VARIABLE VIES
-
-UTILISER GLOBAL DANS LA FONCTION
+## À corriger
+- Variable vies définie avec global dans la fonction update()
+- ennemis partiellement affichés et enrobés de pixels noirs

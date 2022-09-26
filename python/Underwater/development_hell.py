@@ -26,9 +26,12 @@ ennemis_liste = []
 # initialisation des explosions
 explosions_liste = []  
 
-# initialisation du nombre de vies
+# définition du nombre de vies
 vies = 4
 
+# définition du score
+
+score = 0
 
 
 def vaisseau_deplacement(x, y):
@@ -93,7 +96,7 @@ def vaisseau_suppression(vies):
     for ennemi in ennemis_liste:
         if ennemi[0] <= vaisseau_x+8 and ennemi[1] <= vaisseau_y+8 and ennemi[0]+8 >= vaisseau_x and ennemi[1]+8 >= vaisseau_y:
             ennemis_liste.remove(ennemi)
-            global vies -= 1
+            vies -= 1
             # on ajoute l'explosion
             explosions_creation(vaisseau_x, vaisseau_y)
     return vies
@@ -101,7 +104,7 @@ def vaisseau_suppression(vies):
 
 def ennemis_suppression():
     """disparition d'un ennemi et d'un tir si contact"""
-
+    score = 0
     for ennemi in ennemis_liste:
         for tir in tirs_liste:
             if ennemi[0] <= tir[0]+1 and ennemi[0]+8 >= tir[0] and ennemi[1]+8 >= tir[1]:
@@ -109,6 +112,16 @@ def ennemis_suppression():
                 tirs_liste.remove(tir)
                 # on ajoute l'explosion
                 explosions_creation(ennemi[0], ennemi[1])
+                # + 10 au score
+                score += 10
+
+#def one_up():
+#    """ajoute une vie quand score = 100 ou un multiple de 100"""
+#    # pour l'instant score = 3 pour tester
+#    pour_une_vie_de_plus = 3
+#    if score == pour_une_vie_de_plus:
+#        vies += 1
+#        pour_une_vie_de_plus += 3
 
 
 def explosions_creation(x, y):
@@ -144,17 +157,20 @@ def update():
     # creation des ennemis
     ennemis_liste = ennemis_creation(ennemis_liste)
 
-    # mise a jour des positions des ennemis
+    # mise à jour des positions des ennemis
     ennemis_liste = ennemis_deplacement(ennemis_liste)    
 
     # suppression des ennemis et tirs si contact
     ennemis_suppression()
 
     # suppression du vaisseau et ennemi si contact
+    global vies
     vies = vaisseau_suppression(vies)
 
     # evolution de l'animation des explosions
     explosions_animation()    
+
+    # mise à jour du score
 
 
 
@@ -167,28 +183,35 @@ def draw():
     # vide la fenetre
     pyxel.cls(0)
 
+    if vies > 0:
+
+    # affichage du nombre de vie
+        pyxel.text(5, 5, 'VIES :'+ str(vies), 7)
+
+
     # vaisseau (carre 8x8)
-    pyxel.rect(vaisseau_x, vaisseau_y, 8, 8, 1)
+        pyxel.rect(vaisseau_x, vaisseau_y, 8, 8, 1)
 
     # tirs
-    for tir in tirs_liste:
-        pyxel.rect(tir[0], tir[1], 1, 4, 10)
+        for tir in tirs_liste:
+            pyxel.rect(tir[0], tir[1], 1, 4, 10)
 
     # ennemis
     
     #bloc pour le pyxres
-    for ennemi in ennemis_liste:
-        pyxel.blt(ennemi[0], ennemi[1], 0, 0, 0, 20, 20)
+        for ennemi in ennemis_liste:
+            pyxel.blt(ennemi[0], ennemi[1], 0, 0, 0, 20, 20)
         
+    # afficher score
+        pyxel.text(0, 20, 'SCORE : '+ str(score), 7)
 
 
-    # bloc pour charger une image
-    # for ennemi in ennemis_liste:
-    #    pyxel.image(0).load(0, 1, 'sprites/ravioli.png')
+    else:
+
+        pyxel.text(50,64, 'GAMME AU VERRE', 7)
+
+
     
-    #bloc pour le pyxres
-    #for ennemi in ennemis_liste:
-    #    pyxel.load('sprites/ravioli.pyxres')
         
 
     # bloc original
