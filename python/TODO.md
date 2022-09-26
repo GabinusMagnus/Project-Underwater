@@ -14,6 +14,7 @@
 - Créer un écran d'accueil : **à faire**
 - Créer un décor : **à faire**
 - Ajouter un score : **en cours**
+- Définir sprite des ennemis comme coquillage : **fait**
 
 
 ## À corriger
