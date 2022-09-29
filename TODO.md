@@ -5,10 +5,8 @@
 - Afficher tirs : **fait**
 - Afficher ennemis : **fait**
 - Animations (collisions) : **fait**
-- Définir fond d'écran : **à faire**
-- Définir ennemis comme nouilles : **à faire**
-- Définir sprite du joueur comme sous-marin : **à faire**
-- Créer un écran d'accueil : **à faire**
+- Définir ennemis comme nouilles : **fait**
+- Définir sprite du joueur comme sous-marin : **fait**
 
 ## Apprentissage Scratch
 
