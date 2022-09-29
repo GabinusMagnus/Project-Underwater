@@ -197,16 +197,14 @@ def draw():
             pyxel.rect(tir[0], tir[1], 1, 4, 10)
 
     # ennemis
-    
+    for ennemi in ennemis_liste:
+        pyxel.blt(ennemi[0], ennemi[1], 2, 2, 2, 10, 10)
     #bloc pour le pyxres
-        for ennemi in ennemis_liste:
-            pyxel.blt(ennemi[0], ennemi[1], 0, 0, 0, 15, 15)
+    for ennemi in ennemis_liste:
+        pyxel.blt(ennemi[0], ennemi[1], 2, 2, 2, 10, 10)
         
-    # afficher score
-        pyxel.text(0, 20, 'SCORE : '+ str(score), 7)
 
-
-    else:
+    if vies <= 0:
 
         pyxel.text(50,64, 'GAMME AU VERRE', 7)
 
