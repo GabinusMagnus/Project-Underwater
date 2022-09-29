@@ -8,8 +8,8 @@ pyxel.init(128, 128, title="Project Underwater")
 
 
 # on charge ravioli.pyxres
-pyxel.load('sprites/coquillage.pyxres')
-
+pyxel.load('sprites/ennemis.pyxres')
+pyxel.load('sprites/sousmarin.pyxres')
 
 
 # position initiale du vaisseau
@@ -190,7 +190,7 @@ def draw():
 
 
     # vaisseau (carre 8x8)
-        pyxel.rect(vaisseau_x, vaisseau_y, 8, 8, 1)
+        pyxel.blt(vaisseau_x, vaisseau_y, 0, 0, 0, 20, 20)
 
     # tirs
         for tir in tirs_liste:
@@ -200,7 +200,7 @@ def draw():
     
     #bloc pour le pyxres
         for ennemi in ennemis_liste:
-            pyxel.blt(ennemi[0], ennemi[1], 0, 0, 0, 20, 20)
+            pyxel.blt(ennemi[0], ennemi[1], 0, 0, 0, 15, 15)
         
     # afficher score
         pyxel.text(0, 20, 'SCORE : '+ str(score), 7)
