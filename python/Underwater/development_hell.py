@@ -1,6 +1,7 @@
-# on rajoute random
+# importation des modules
 from distutils.command.install_lib import PYTHON_SOURCE_EXTENSION
 import pyxel, random
+
 
 # taille de la fenetre 128x128 pixels
 # ne pas modifier
@@ -31,7 +32,7 @@ vies = 4
 
 # définition du score
 
-score = 0
+#score = 0
 
 
 def vaisseau_deplacement(x, y):
@@ -104,6 +105,7 @@ def vaisseau_suppression(vies):
 
 def ennemis_suppression():
     """disparition d'un ennemi et d'un tir si contact"""
+    global score
     score = 0
     for ennemi in ennemis_liste:
         for tir in tirs_liste:
@@ -196,17 +198,21 @@ def draw():
         for tir in tirs_liste:
             pyxel.rect(tir[0], tir[1], 1, 4, 10)
 
+
+    # score
+    pyxel.text(5, 12, 'SCORE : '+ str(score), 7)
+
     # ennemis
-    for ennemi in ennemis_liste:
-        pyxel.blt(ennemi[0], ennemi[1], 2, 2, 2, 10, 10)
+    # for ennemi in ennemis_liste:
+    #     pyxel.blt(ennemi[0], ennemi[1], 2, 2, 2, 10, 10)
     #bloc pour le pyxres
     for ennemi in ennemis_liste:
         pyxel.blt(ennemi[0], ennemi[1], 2, 2, 2, 10, 10)
         
 
-    if vies <= 0:
+    if vies == 0:
 
-        pyxel.text(50,64, 'GAMME AU VERRE', 7)
+        pyxel.text(50, 60, 'GAMME AU VERRE', 7)
 
 
     
