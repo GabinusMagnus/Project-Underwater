@@ -18,15 +18,18 @@ Pip est souvent installé en même temps que python, mais si vous n'avez as pip 
 
 ##### Installer pip :
 
-Windows : - télécharger [get-pip.py](https://bootstrap.pypa.io/get-pip.py)
-          - ouvrir un terminal
-          - entrer "cd Downloads" puis "python.exe get-pip.py"
+Windows : 
+- télécharger [get-pip.py](https://bootstrap.pypa.io/get-pip.py)
+- ouvrir un terminal
+- entrer "cd Downloads" puis "python.exe get-pip.py"
           
-MacOS : - ouvrir un terminal
-        - entrer "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py" puis "python3 get-pip.py"
+MacOS : 
+- ouvrir un terminal
+- entrer "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py" puis "python3 get-pip.py"
 
-Linux : - ouvrir un terminal
-        - entrer "sudo apt install python3-pip"
+Linux : 
+- ouvrir un terminal
+- entrer "sudo apt install python3-pip"
         
 
 Une fois pip installé, entrez dans un terminal "pip install pyxel".
