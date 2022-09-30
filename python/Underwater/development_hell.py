@@ -114,14 +114,14 @@ def ennemis_suppression():
                 explosions_creation(ennemi[0], ennemi[1])
                 
 
-#def one_up():
-#    """ajoute une vie quand score = 100 ou un multiple de 100"""
-#    # pour l'instant score = 3 pour tester
-#    pour_une_vie_de_plus = 3
-#    if score == pour_une_vie_de_plus:
-#        vies += 1
-#        pour_une_vie_de_plus += 3
-
+def one_up():
+    """ajoute une vie quand score = multiple euclidien de 10 et ajoute 1 au score"""
+    global vies
+    global score
+    if score >= 10 and score % 10 == 0:
+        score += 1
+        vies += 1
+    
 
 def explosions_creation(x, y):
     """explosions aux points de collision entre deux objets"""
@@ -170,10 +170,8 @@ def update():
     # evolution de l'animation des explosions
     explosions_animation()    
 
-    # mise à jour du score
-
-
-
+    # rajout d'une vie tous les dix ennemis touchés
+    one_up()
 # =========================================================
 # == DRAW
 # =========================================================
