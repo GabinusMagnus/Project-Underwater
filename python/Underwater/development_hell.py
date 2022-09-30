@@ -8,9 +8,8 @@ import pyxel, random
 pyxel.init(128, 128, title="Project Underwater")
 
 
-# on charge ravioli.pyxres
-pyxel.load('sprites/ennemis.pyxres')
-pyxel.load('sprites/sousmarin.pyxres')
+# on charge sprites.pyxres qui contient les sprites
+pyxel.load('sprites/sprites.pyxres')
 
 
 # position initiale du vaisseau
@@ -32,7 +31,7 @@ vies = 4
 
 # définition du score
 
-#score = 0
+score = 0
 
 
 def vaisseau_deplacement(x, y):
@@ -105,8 +104,7 @@ def vaisseau_suppression(vies):
 
 def ennemis_suppression():
     """disparition d'un ennemi et d'un tir si contact"""
-    global score
-    score = 0
+    
     for ennemi in ennemis_liste:
         for tir in tirs_liste:
             if ennemi[0] <= tir[0]+1 and ennemi[0]+8 >= tir[0] and ennemi[1]+8 >= tir[1]:
@@ -114,8 +112,7 @@ def ennemis_suppression():
                 tirs_liste.remove(tir)
                 # on ajoute l'explosion
                 explosions_creation(ennemi[0], ennemi[1])
-                # + 10 au score
-                score += 10
+                
 
 #def one_up():
 #    """ajoute une vie quand score = 100 ou un multiple de 100"""
@@ -129,7 +126,8 @@ def ennemis_suppression():
 def explosions_creation(x, y):
     """explosions aux points de collision entre deux objets"""
     explosions_liste.append([x, y, 0])
-
+    global score
+    score += 1
 
 def explosions_animation():
     """animation des explosions"""
@@ -190,36 +188,31 @@ def draw():
     # affichage du nombre de vie
         pyxel.text(5, 5, 'VIES :'+ str(vies), 7)
 
+    # affichage du score
+        pyxel.text(5, 12, 'SCORE : '+ str(score), 7)
 
-    # vaisseau (carre 8x8)
-        pyxel.blt(vaisseau_x, vaisseau_y, 0, 0, 0, 20, 20)
+        
+    # sous-marin
+        pyxel.blt(vaisseau_x, vaisseau_y, 0, 1, 0, 13, 18)
 
     # tirs
         for tir in tirs_liste:
             pyxel.rect(tir[0], tir[1], 1, 4, 10)
+    
+    # explosions
+        for explosion in explosions_liste:
+            pyxel.circb(explosion[0]+4, explosion[1]+4, 2*(explosion[2]//4), 8+explosion[2]%3)
 
-
-    # score
-    pyxel.text(5, 12, 'SCORE : '+ str(score), 7)
-
-    # ennemis
-    # for ennemi in ennemis_liste:
-    #     pyxel.blt(ennemi[0], ennemi[1], 2, 2, 2, 10, 10)
-    #bloc pour le pyxres
-    for ennemi in ennemis_liste:
-        pyxel.blt(ennemi[0], ennemi[1], 2, 2, 2, 10, 10)
+    # spawn ennemis
+        for ennemi in ennemis_liste:
+            pyxel.blt(ennemi[0], ennemi[1], 1, 0, 0, 13, 13)
         
+    
 
-    if vies == 0:
+    else:
 
         pyxel.text(50, 60, 'GAMME AU VERRE', 7)
-
-
-    
-        
-
-    # bloc original
-    #for ennemi in ennemis_liste:
-    #    pyxel.rect(ennemi[0], ennemi[1], 8, 8, 8)        
+        pyxel.text(5, 12, 'SCORE : '+ str(score), 7)
+   
 
 pyxel.run(update, draw)
